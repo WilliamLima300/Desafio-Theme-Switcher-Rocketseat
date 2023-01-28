@@ -1,0 +1,98 @@
+/* Adicionar variaveis css */
+:root {
+	--dark: #292C35;
+	--light: #F1F1F1;
+	--label: #111;
+}
+
+/* adicionar modo light */
+body[data-theme="light"]{
+    background-color: var(--light);
+    color: var(--label);
+}
+/* adicionar modo dark */
+body[data-theme="dark"]{
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* Zerar margin e padding do body */
+body{
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adicionar estilo a div ThemeSwitcher */
+
+.themeswitcher{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.themeswitcher input{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.themeswitcher label{
+    display: block;
+    text-indent: -9999px;
+    width: 140px;
+    height: 60px;
+    border: none;
+    background-color: var(--label);
+    border-radius: 50px;
+    position: relative;
+    background-image:url('/assets/moon.svg') ;
+    background-position: 85% 50%;
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+}
+
+
+.themeswitcher label::after{
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: var(--light);
+    top: 18%;
+    left: 25px;
+    transform: translate(-50%);
+    cursor:pointer;
+    transition: .5s ease;
+
+}
+
+input:checked + label{
+    background-image:url('/assets/sun.svg') ;
+    background-position:15% 50%;
+    background-repeat: no-repeat;
+    border: 2px solid whitesmoke;
+}
+
+input:checked + label::after{
+    background-color: whitesmoke;
+    left: calc(100% - 25px);
+}
+
+.text{
+    
+    margin-top: 20px;
+    width: 50%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
